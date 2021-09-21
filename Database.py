@@ -1,14 +1,12 @@
-import sqlite3
+import sqlite3 
+import os 
+os.system("cls")
 
-#conn = sqlite3.connect(':memory:')
 
-conn = sqlite3.connect('procesos.db')
+miConexion = sqlite3.connect("BDinventory.db") 
+print("Conectado Satisfactoriamente")
+miCursor = miConexion.cursor() # miCursor.execute("CREATE TABLE Cursos (idCurso INTEGER NOT NULL UNIQUE, NombreCurso TEXT NOT NULL, PRIMARY KEY(idCurso AUTOINCREMENT))")
+miCursor.execute("INSERT INTO IyE_negocio (Id) VALUES ('1011')")
 
-c = conn.cursor()
-
-c.execute("""CREATE TABLE transaccion (
-    id integer,
-    fecha integer,
-    cantidad_vendido real
-    total real
-    )""")
+miCursor.close()
+miConexion.close()
